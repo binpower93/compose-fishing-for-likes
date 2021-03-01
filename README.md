@@ -1,4 +1,4 @@
-# Compose Fish
+# Fishing for likes
 
 ![Workflow result](https://github.com/binpower93/compose-fish/workflows/Check/badge.svg)
 
