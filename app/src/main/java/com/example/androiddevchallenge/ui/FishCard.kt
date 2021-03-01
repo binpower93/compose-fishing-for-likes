@@ -141,5 +141,5 @@ fun FishCardPreview() {
             location = "Scotland",
         ),
         isPreview = true,
-    ) {  }
+    ) { }
 }
