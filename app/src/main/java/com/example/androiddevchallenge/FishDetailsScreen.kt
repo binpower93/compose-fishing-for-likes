@@ -37,11 +37,12 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.androiddevchallenge.data.Fish
@@ -89,13 +90,19 @@ fun FishDetailsScreen(
             FishDimensionsCard(fish)
 
             Text(
-                modifier = Modifier.padding(horizontal = 40.dp).padding(top = 16.dp).fillMaxWidth(),
+                modifier = Modifier
+                    .padding(horizontal = 40.dp)
+                    .padding(top = 16.dp)
+                    .fillMaxWidth(),
                 text = "Description",
                 style = MaterialTheme.typography.h5,
             )
 
             Text(
-                modifier = Modifier.padding(horizontal = 40.dp).padding(top = 8.dp).fillMaxWidth(),
+                modifier = Modifier
+                    .padding(horizontal = 40.dp)
+                    .padding(top = 8.dp)
+                    .fillMaxWidth(),
                 text = fish.description,
                 style = MaterialTheme.typography.subtitle2,
             )
@@ -107,13 +114,18 @@ fun FishDetailsScreen(
 private fun FishHeaderCard(fish: Fish) {
     Card(
         modifier = Modifier.padding(32.dp),
-        shape = MaterialTheme.shapes.medium.copy(all = CornerSize(16.dp))
+        shape = MaterialTheme.shapes.medium.copy(all = CornerSize(16.dp)),
     ) {
         Column {
             Box(
                 modifier = Modifier
                     .background(MaterialTheme.colors.surface.copy(alpha = 0.1f))
-                    .clip(RoundedCornerShape(16.dp))
+//                    .clip(RoundedCornerShape(16.dp))
+                    .shadow(
+                        elevation = 2.dp,
+                        shape = RoundedCornerShape(size = 16.dp),
+                        clip = true,
+                    ),
             ) {
                 GlideImage(
                     data = fish.image,
@@ -164,28 +176,69 @@ private fun FishDimensionsCard(fish: Fish) {
         shape = MaterialTheme.shapes.medium.copy(CornerSize(16.dp)),
     ) {
         Column(Modifier.padding(16.dp)) {
-            Text(
-                text = "Height: ${fish.height}",
-                style = MaterialTheme.typography.body1,
-            )
-            Text(
-                text = "Weight: ${fish.weight}",
-                style = MaterialTheme.typography.body1,
-            )
-            Text(
-                text = "Price: ${fish.price}",
-                style = MaterialTheme.typography.body1,
-            )
+            Row {
+                Text(
+                    text = "Species:",
+                    style = MaterialTheme.typography.body1,
+                    fontWeight = FontWeight.Bold,
+                )
+                Text(
+                    modifier = Modifier.padding(start = 8.dp),
+                    text = fish.species,
+                    style = MaterialTheme.typography.body1,
+                )
+            }
+            Row(modifier = Modifier.padding(top = 8.dp)) {
+                Text(
+                    text = "Height:",
+                    style = MaterialTheme.typography.body1,
+                    fontWeight = FontWeight.Bold,
+                )
+                Text(
+                    modifier = Modifier.padding(start = 8.dp),
+                    text = "${fish.height} cm",
+                    style = MaterialTheme.typography.body1,
+                )
+            }
+            Row(modifier = Modifier.padding(vertical = 8.dp)) {
+                Text(
+                    text = "Weight:",
+                    style = MaterialTheme.typography.body1,
+                    fontWeight = FontWeight.Bold,
+                )
+                Text(
+                    modifier = Modifier.padding(start = 8.dp),
+                    text = "${fish.weight}g",
+                    style = MaterialTheme.typography.body1,
+                )
+            }
+
+            Row(modifier = Modifier.padding(top = 8.dp)) {
+                Text(
+                    text = "Price:",
+                    style = MaterialTheme.typography.h6,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colors.secondaryVariant,
+                )
+                Text(
+                    modifier = Modifier.padding(start = 8.dp),
+                    text = fish.price,
+                    style = MaterialTheme.typography.h6,
+                    color = MaterialTheme.colors.secondaryVariant,
+                )
+            }
             Button(
                 modifier = Modifier
                     .padding(top = 16.dp)
                     .fillMaxWidth(),
                 onClick = {},
-                colors = secondaryButtonColors()
+                colors = secondaryButtonColors(),
+                shape = RoundedCornerShape(percent = 50)
             ) {
                 Text(
                     text = "Adopt",
-                    style = MaterialTheme.typography.button,
+                    style = MaterialTheme.typography.h6
+                    ,
                 )
             }
         }

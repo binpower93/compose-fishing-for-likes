@@ -13,7 +13,7 @@
     <color name="primary">#FFBBDEFB</color>
     <color name="primary_dark">#FFBBDEFB</color>
     <color name="accent">#FF18FFFF</color>
-    <color name="accentVariant">#FF18FFFF</color>
+    <color name="accentVariant">#FF00B8D4</color>
     <color name="background">#FFE3F2FD</color>
     <color name="surface">@color/white</color>
     <color name="black">#FF000000</color>
