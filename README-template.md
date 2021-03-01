@@ -1,17 +1,13 @@
-# Put title of your app here
+# Compose Fish
 
-<!--- Replace <OWNER> with your Github Username and <REPOSITORY> with the name of your repository. -->
-<!--- You can find both of these in the url bar when you open your repository in github. -->
-![Workflow result](https://github.com/<OWNER>/<REPOSITORY>/workflows/Check/badge.svg)
+![Workflow result](https://github.com/binpower93/compose-fish/workflows/Check/badge.svg)
 
 
 ## :scroll: Description
-<!--- Describe your app in one or two sentences -->
-
+Allows the user to browse a list of fish that they can adopt.
 
 ## :bulb: Motivation and Context
-<!--- Optionally point readers to interesting parts of your submission. -->
-<!--- What are you especially proud of? -->
+Details screen is loosely based upon https://dribbble.com/shots/14912155-Pet-Adoption-App.
 
 
 ## :camera_flash: Screenshots
