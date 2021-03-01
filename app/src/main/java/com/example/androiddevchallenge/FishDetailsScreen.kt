@@ -101,7 +101,10 @@ fun FishDetailsScreen(
             Text(
                 modifier = Modifier
                     .padding(horizontal = 40.dp)
-                    .padding(top = 8.dp)
+                    .padding(
+                        top = 8.dp,
+                        bottom = 32.dp,
+                    )
                     .fillMaxWidth(),
                 text = fish.description,
                 style = MaterialTheme.typography.subtitle2,
