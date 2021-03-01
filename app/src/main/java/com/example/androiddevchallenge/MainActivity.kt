@@ -20,10 +20,13 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.androiddevchallenge.data.Fish
+import com.example.androiddevchallenge.data.Gender
+import com.example.androiddevchallenge.ui.FishCard
 import com.example.androiddevchallenge.ui.theme.MyTheme
+import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,11 +39,24 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-// Start building your app here!
 @Composable
 fun MyApp() {
     Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+        FishCard(
+            fish = Fish(
+                id = UUID.randomUUID().toString(),
+                name = "Nicola Sturgeon",
+                species = "Shovelnose Sturgeon",
+                age = "1",
+                price = "$45",
+                height = 10,
+                weight = 10,
+                gender = Gender.Female,
+                description = "A strong female fish, who won't stop until she gets independence",
+                image = "https://upload.wikimedia.org/wikipedia/commons/1/12/Sturgeon.jpg",
+                location = "Scotland",
+            ),
+        )
     }
 }
 
