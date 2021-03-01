@@ -240,8 +240,7 @@ private fun FishDimensionsCard(fish: Fish) {
             ) {
                 Text(
                     text = "Adopt",
-                    style = MaterialTheme.typography.h6
-                    ,
+                    style = MaterialTheme.typography.h6,
                 )
             }
         }
