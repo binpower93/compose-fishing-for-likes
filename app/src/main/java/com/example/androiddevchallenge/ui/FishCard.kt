@@ -16,6 +16,7 @@
 package com.example.androiddevchallenge.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -45,6 +46,7 @@ fun FishCard(
     modifier: Modifier = Modifier,
     fish: Fish,
     isPreview: Boolean = false,
+    onClick: () -> Unit,
 ) {
     Box(modifier = modifier) {
         Card(
@@ -57,6 +59,9 @@ fun FishCard(
                 )
                 .height(96.dp)
                 .fillMaxWidth()
+                .clickable {
+                    onClick()
+                }
         ) {
             Column(
                 modifier = Modifier.padding(
@@ -93,7 +98,10 @@ fun FishCard(
         }
         Card(
             elevation = 5.dp,
-            shape = MaterialTheme.shapes.medium.copy(all = CornerSize(size = 16.dp))
+            shape = MaterialTheme.shapes.medium.copy(all = CornerSize(size = 16.dp)),
+            modifier = Modifier.clickable {
+                onClick()
+            },
         ) {
             if (isPreview) {
                 Image(
@@ -133,5 +141,5 @@ fun FishCardPreview() {
             location = "Scotland",
         ),
         isPreview = true,
-    )
+    ) {  }
 }
